@@ -1,7 +1,6 @@
-package tk.milanbojovic.shape;
+package com.milanbojovic.shape;
 
 import javafx.scene.canvas.Canvas;
-import javafx.scene.paint.Color;
 import javafx.scene.web.WebView;
 
 /**

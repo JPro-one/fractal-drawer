@@ -1,5 +1,6 @@
-package tk.milanbojovic;
+package com.milanbojovic;
 
+import com.milanbojovic.shape.*;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;

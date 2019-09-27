@@ -1,4 +1,4 @@
-package tk.milanbojovic;
+package com.milanbojovic;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;

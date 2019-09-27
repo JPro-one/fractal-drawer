@@ -1,4 +1,4 @@
-package tk.milanbojovic;
+package com.milanbojovic;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
