@@ -39,6 +39,7 @@
                               <HBox spacing="5.0">
                                  <children>
                                     <Button mnemonicParsing="false" onAction="#drawPrevDepthLevel" text="Level --" />
+                                     <Label fx:id="counter" alignment="CENTER" prefHeight="30.0" prefWidth="40.0" style="-fx-alignment: center;" />
                                     <Button mnemonicParsing="false" onAction="#drawNextDepthLevel" text="Level ++" />
                                  </children>
                                  <padding>

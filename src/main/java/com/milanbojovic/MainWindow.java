@@ -12,6 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.ListView;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.web.WebView;
@@ -24,6 +25,7 @@ import java.util.ResourceBundle;
 public class MainWindow implements Initializable{
 
     public AnchorPane canwrap, fracDimensionWrap;
+    public Label counter;
 
     public Canvas canvas;
     public WebView webView;
@@ -61,7 +63,7 @@ public class MainWindow implements Initializable{
         listViewData.add("Koch Snowflake");
         listViewData.add("Koch Anti Snowflake");
         listViewData.add("Koch Coastline");
-        listViewData.add("Mandelbrot Set");
+//      listViewData.add("Mandelbrot Set");
         listViewData.add("Tree");
         listViewData.add("Tree 60 degree");
         listViewData.add("Tree 90 degree");
@@ -77,6 +79,8 @@ public class MainWindow implements Initializable{
                 resetCanvas();
                 resizeCanvas();
                 selectedShape = createFractalObject(getCurrentSelection());
+                selectedShape.setCurrentDepth(0);
+                counter.setText("" + selectedShape.getCurrentDepth());
             }
         });
     }
@@ -127,10 +131,10 @@ public class MainWindow implements Initializable{
 
     @FXML
     public void drawNextDepthLevel(){
-        if(selectedShape != null){
+        if(selectedShape != null) {
             selectedShape.drawNextDepthLevel();
-        }
-        else{
+            counter.setText("" + selectedShape.getCurrentDepth());
+        } else {
             System.out.println("Please select SHAPE from the list first!!!");
         }
     }
@@ -139,6 +143,7 @@ public class MainWindow implements Initializable{
     public void drawPrevDepthLevel(){
         if(selectedShape != null){
             selectedShape.drawPrevDepthLevel();
+            counter.setText("" + selectedShape.getCurrentDepth());
         }
         else{
             System.out.println("Please select SHAPE from the list first!!!");
@@ -154,7 +159,7 @@ public class MainWindow implements Initializable{
                 return new SierpinskiTriangle(8, canvas, webView);
 
             case "Sierpinski Carpet":
-                return new SierpinskiCarpet(6, canvas, webView);
+                return new SierpinskiCarpet(5, canvas, webView);
 
             case "Cantor Set":
                 return new CantorSet(7, canvas, webView);
@@ -172,10 +177,10 @@ public class MainWindow implements Initializable{
                 return new KochCurveQuadratic2(6, canvas, webView);
 
             case "Dragon Curve":
-                return new DragonCurve(18, canvas, webView, "single", "dragon");
+                return new DragonCurve(17, canvas, webView, "single", "dragon");
 
             case "Twin Dragon Curve":
-                return new DragonCurve(18, canvas, webView, "double", "dragon");
+                return new DragonCurve(15, canvas, webView, "double", "dragon");
 
             case "Levy C curve":
                 return new DragonCurve(18, canvas, webView, "single", "cCurve");
@@ -189,9 +194,9 @@ public class MainWindow implements Initializable{
             case "Koch Coastline":
                 return new KochCoastline(9, canvas, webView);
 
-            case "Mandelbrot Set":
+/*            case "Mandelbrot Set":
                 return new MandelbrotSet(7, canvas, webView);
-
+*/
             case "Tree":
                 return new Tree(10, canvas, webView, 15, 37, .65);
 
